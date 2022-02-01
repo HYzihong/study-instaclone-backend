@@ -1,0 +1,30 @@
+{
+  "name": "instaclone-backend",
+  "version": "1.0.0",
+  "description": "study instaclone-backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/HYzihong/study-instaclone-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HYzihong/study-instaclone-backend/issues"
+  },
+  "homepage": "https://github.com/HYzihong/study-instaclone-backend#readme",
+  "dependencies": {
+    "apollo-server": "^3.6.2",
+    "graphql": "^16.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15"
+  }
+}
