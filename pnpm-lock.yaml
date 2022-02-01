@@ -13,6 +13,7 @@ specifiers:
   graphql: ^16.3.0
   husky: ^7.0.4
   nodemon: ^2.0.15
+  prisma: ^3.9.0
 
 dependencies:
   apollo-server: registry.npmmirror.com/apollo-server/3.6.2_graphql@16.3.0
@@ -29,6 +30,7 @@ devDependencies:
   cz-conventional-changelog: registry.npmmirror.com/cz-conventional-changelog/3.3.0
   husky: registry.npmmirror.com/husky/7.0.4
   nodemon: registry.npmmirror.com/nodemon/2.0.15
+  prisma: registry.npmmirror.com/prisma/3.9.0
 
 packages:
 
@@ -1900,6 +1902,13 @@ packages:
     name: '@josephg/resolvable'
     version: 1.0.1
     dev: false
+
+  registry.npmmirror.com/@prisma/engines/3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009:
+    resolution: {integrity: sha512-qM+uJbkelB21bnK44gYE049YTHIjHysOuj0mj5U2gDGyNLfmiazlggzFPCgEjgme4U5YB2tYs6Z5Hq08Kl8pjA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@prisma/engines/-/engines-3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009.tgz}
+    name: '@prisma/engines'
+    version: 3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009
+    requiresBuild: true
+    dev: true
 
   registry.npmmirror.com/@protobufjs/aspromise/1.1.2:
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz}
@@ -5284,6 +5293,17 @@ packages:
     name: prepend-http
     version: 2.0.0
     engines: {node: '>=4'}
+    dev: true
+
+  registry.npmmirror.com/prisma/3.9.0:
+    resolution: {integrity: sha512-KppIukAgJH6o4q9CRYQUqpJUFt8XOK+5eTlv9W+w/SnaSzar+zbT7RCxspCkoGGVSASAQDMYWSKm3QON/o5ENg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prisma/-/prisma-3.9.0.tgz}
+    name: prisma
+    version: 3.9.0
+    engines: {node: '>=12.6'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': registry.npmmirror.com/@prisma/engines/3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009
     dev: true
 
   registry.npmmirror.com/process-nextick-args/2.0.1:
