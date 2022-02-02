@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
     "migrate": "pnpm exec prisma migrate dev",
+    "studio": "pnpm exec prisma studio",
     "commit": "git add . && git cz",
     "prepare": "husky install",
     "cz": "git-cz",

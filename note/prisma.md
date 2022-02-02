@@ -3,7 +3,7 @@
  * @Date: 2022-02-02 00:12:54
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-02 01:35:26
+ * @LastEditTime: 2022-02-02 12:33:39
  * @FilePath: /instaclone-backend/note/prisma.md
  * Copyright 2022 hy, All Rights Reserved.
  * 仅供学习使用~
@@ -35,6 +35,8 @@ https://pris.ly/d/getting-started
 
 ```
 
+同步 Prisma 架构与数据库架构，初始化了迁移历史记录
+
 ```shell
 
 $ pnpm exec prisma migrate dev
@@ -58,5 +60,16 @@ Running generate... (Use --skip-generate to skip the generators)
 
 ✔ Generated Prisma Client (3.9.0 | library) to ./node_modules/.pnpm/registry.npmmirror.com+@prisma+client@3.9.0_prisma@3.9.0/node_modules/@prisma/client in 632ms
 
+
+```
+
+Prisma Studio 是数据库中数据的可视化编辑器
+
+```shell
+
+$ pnpm exec prisma studio
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Prisma Studio is up on http://localhost:5555
 
 ```
