@@ -3,7 +3,7 @@
  * @Date: 2022-02-02 00:12:54
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-02 00:13:46
+ * @LastEditTime: 2022-02-02 01:35:26
  * @FilePath: /instaclone-backend/note/prisma.md
  * Copyright 2022 hy, All Rights Reserved.
  * 仅供学习使用~
@@ -32,5 +32,31 @@ Next steps:
 
 More information in our documentation:
 https://pris.ly/d/getting-started
+
+```
+
+```shell
+
+$ pnpm exec prisma migrate dev
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "instaclone", schema "public" at "localhost:5432"
+
+✔ Enter a name for the new migration: …
+Applying migration `20220201171037_`
+
+The following migration(s) have been created and applied from new schema changes:
+
+migrations/
+  └─ 20220201171037_/
+    └─ migration.sql
+
+Your database is now in sync with your schema.
+
+Running generate... (Use --skip-generate to skip the generators)
+
+
+✔ Generated Prisma Client (3.9.0 | library) to ./node_modules/.pnpm/registry.npmmirror.com+@prisma+client@3.9.0_prisma@3.9.0/node_modules/@prisma/client in 632ms
+
 
 ```

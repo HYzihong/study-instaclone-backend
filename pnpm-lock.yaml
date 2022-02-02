@@ -6,6 +6,7 @@ specifiers:
   '@babel/preset-env': ^7.16.11
   '@commitlint/cli': ^16.1.0
   '@commitlint/config-conventional': ^16.0.0
+  '@prisma/client': ^3.9.0
   apollo-server: ^3.6.2
   commitizen: ^4.2.4
   conventional-changelog-cli: ^2.2.2
@@ -16,6 +17,7 @@ specifiers:
   prisma: ^3.9.0
 
 dependencies:
+  '@prisma/client': registry.npmmirror.com/@prisma/client/3.9.0_prisma@3.9.0
   apollo-server: registry.npmmirror.com/apollo-server/3.6.2_graphql@16.3.0
   graphql: registry.npmmirror.com/graphql/16.3.0
 
@@ -1901,6 +1903,29 @@ packages:
     resolution: {integrity: sha512-CtzORUwWTTOTqfVtHaKRJ0I1kNQd1bpn3sUh8I3nJDVY+5/M/Oe1DnEWzPQvqq/xPIIkzzzIP7mfCoAjFRvDhg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@josephg/resolvable/-/resolvable-1.0.1.tgz}
     name: '@josephg/resolvable'
     version: 1.0.1
+    dev: false
+
+  registry.npmmirror.com/@prisma/client/3.9.0_prisma@3.9.0:
+    resolution: {integrity: sha512-PByWVI7l+KYUQL/pqR81363qhUh3LhYMIYn2czz5slbt3JC6aAk+Wm7PE9nalqSE6s4xSIYdHj6N0yTNqr86sA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@prisma/client/-/client-3.9.0.tgz}
+    id: registry.npmmirror.com/@prisma/client/3.9.0
+    name: '@prisma/client'
+    version: 3.9.0
+    engines: {node: '>=12.6'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': registry.npmmirror.com/@prisma/engines-version/3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009
+      prisma: registry.npmmirror.com/prisma/3.9.0
+    dev: false
+
+  registry.npmmirror.com/@prisma/engines-version/3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009:
+    resolution: {integrity: sha512-5Dh+qTDhpPR66w6NNAnPs+/W/Qt4r1DSd+qhfPFcDThUK4uxoZKGlPb2IYQn5LL+18aIGnmteDf7BnVMmvBNSQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@prisma/engines-version/-/engines-version-3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009.tgz}
+    name: '@prisma/engines-version'
+    version: 3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009
     dev: false
 
   registry.npmmirror.com/@prisma/engines/3.9.0-58.bcc2ff906db47790ee902e7bbc76d7ffb1893009:
