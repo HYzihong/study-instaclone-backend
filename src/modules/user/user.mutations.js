@@ -3,7 +3,7 @@
  * @Date: 2022-02-03 15:50:21
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-04 19:45:43
+ * @LastEditTime: 2022-02-04 22:49:58
  * @FilePath: /instaclone-backend/src/modules/user/user.mutations.js
  * @Copyright 2022 hy, All Rights Reserved.
  * @仅供学习使用~
@@ -117,12 +117,27 @@ export default {
     */
     editUser: async (
       _,
-      { firstName, lastName, userName, email, password: newPassword, token }
+      { firstName, lastName, userName, email, password: newPassword },
+      // { token }
+      { userConfig, protectResolver }
     ) => {
       try {
-        const SECRETKEY = process.env.SECRET_KEY;
+        // console.log("token ==> ", token);
+        // if (!token) {
+        //   return defaultFailResult(
+        //     "token is undefined.You need to login",
+        //     "",
+        //     "deleteUser"
+        //   );
+        // }
+        if (!userConfig) {
+          return protectResolver(userConfig, "deleteUser");
+        }
+        // const SECRETKEY = process.env.SECRET_KEY;
         // const verify_token = jwt.verify(token, SECRETKEY);
-        const { id } = jwt.verify(token, SECRETKEY);
+        // const { id } = jwt.verify(token, SECRETKEY);
+        const { id } = userConfig;
+
         // console.log(verify_token);
         // return defaultSuccessfulResult(verify_token);
         // { id: 3, iat: 1643974369 }

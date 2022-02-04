@@ -5,7 +5,7 @@ import { gql } from "apollo-server";
  * @Date: 2022-02-03 15:50:07
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-04 19:33:38
+ * @LastEditTime: 2022-02-04 19:54:22
  * @FilePath: /instaclone-backend/src/modules/user/user.typeDefs.js
  * @Copyright 2022 hy, All Rights Reserved.
  * @仅供学习使用~
@@ -40,7 +40,6 @@ export default gql`
       email: String!
     ): DefaultResult!
     editUser(
-      token: String!
       firstName: String!
       lastName: String
       userName: String!
