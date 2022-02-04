@@ -3,7 +3,7 @@
  * @Date: 2022-02-03 15:50:21
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-04 19:23:10
+ * @LastEditTime: 2022-02-04 19:45:43
  * @FilePath: /instaclone-backend/src/modules/user/user.mutations.js
  * @Copyright 2022 hy, All Rights Reserved.
  * @仅供学习使用~
@@ -34,7 +34,11 @@ export default {
         });
         console.log("isHaveUser  ==>", isHaveUser);
         if (isHaveUser) {
-          return defaultFailResult("This username/password is already taken.");
+          return defaultFailResult(
+            "This username/password is already taken.",
+            "",
+            "createUser"
+          );
         }
         // create : password -> MD5 -（后端）> MD5 -> db
         // login : password -> MD5 -> MD5 -（后端) -> db
@@ -50,10 +54,10 @@ export default {
           },
         });
         console.log("createUser ==>", user);
-        return defaultSuccessfulResult(user);
+        return defaultSuccessfulResult(user, "createUser");
       } catch (error) {
         console.log(error);
-        return defaultFailResult(error);
+        return defaultFailResult(error, error, "createUser");
       }
     },
     /*
@@ -77,7 +81,7 @@ export default {
         const user = await clint.user.findFirst({ where: { userName } });
         console.log("user ==>", user);
         if (!user) {
-          return defaultFailResult("user is not found");
+          return defaultFailResult("user is not found", "", "login");
           // return {
           //   ok: false,
           //   error: "user is not found",
@@ -89,7 +93,7 @@ export default {
           user.password
         );
         if (!tempPasswordBoolean) {
-          return defaultFailResult("Incorrect password");
+          return defaultFailResult("Incorrect password", "", "login");
         }
         const SECRETKEY = process.env.SECRET_KEY;
         // console.log(SECRETKEY);// https://jwt.io/
@@ -99,7 +103,7 @@ export default {
           token: token,
         };
       } catch (error) {
-        return defaultFailResult(`error ==> ${error}`);
+        return defaultFailResult(`error ==> ${error}`, error, "login");
       }
     },
     /*
@@ -113,9 +117,15 @@ export default {
     */
     editUser: async (
       _,
-      { id, firstName, lastName, userName, email, password: newPassword }
+      { firstName, lastName, userName, email, password: newPassword, token }
     ) => {
       try {
+        const SECRETKEY = process.env.SECRET_KEY;
+        // const verify_token = jwt.verify(token, SECRETKEY);
+        const { id } = jwt.verify(token, SECRETKEY);
+        // console.log(verify_token);
+        // return defaultSuccessfulResult(verify_token);
+        // { id: 3, iat: 1643974369 }
         let uglyPassword = null;
         if (newPassword) {
           uglyPassword = await bcrypt.hash(newPassword, 10);
@@ -132,19 +142,19 @@ export default {
             ...(uglyPassword && { password: uglyPassword }),
           },
         });
-        return defaultSuccessfulResult(_user);
+        return defaultSuccessfulResult(_user, "editUser");
       } catch (error) {
-        return defaultFailResult(error);
+        return defaultFailResult(error, "", editUser);
       }
     },
     //
     deleteUser: async (_, { id }) => {
       try {
       } catch (error) {
-        return defaultFailResult(error);
+        return defaultFailResult(error, "", "deleteUser");
       }
       const _user = await clint.user.delete({ where: { id } });
-      return defaultSuccessfulResult(_user);
+      return defaultSuccessfulResult(_user, "deleteUser");
     },
   },
 };

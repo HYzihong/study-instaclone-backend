@@ -3,7 +3,7 @@
  * @Date: 2022-02-04 18:55:12
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-04 18:55:15
+ * @LastEditTime: 2022-02-04 19:46:40
  * @FilePath: /instaclone-backend/src/utils/returnResult.js
  * @Copyright 2022 hy, All Rights Reserved.
  * @仅供学习使用~
@@ -14,10 +14,11 @@
  * @param {*} msg
  * @return {*}
  */
-export function defaultFailResult(msg, error) {
+export function defaultFailResult(msg, error, fnName) {
   console.log("<== defaultFailResult ==>");
   // log
-  console.log(msg, error);
+  console.log(`${fnName} : error ==>`, msg, error);
+  console.log("<== defaultFailResult ==>");
   return {
     ok: false,
     error: msg,
@@ -29,7 +30,9 @@ export function defaultFailResult(msg, error) {
  * @param {*} data
  * @return {*}
  */
-export function defaultSuccessfulResult(data) {
+export function defaultSuccessfulResult(data, fnName) {
+  console.log("<== defaultSuccessfulResult ==>");
+  console.log(`${fnName} : data ==>`, data);
   console.log("<== defaultSuccessfulResult ==>");
   return {
     ok: true,
