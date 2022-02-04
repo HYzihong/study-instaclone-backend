@@ -5,7 +5,7 @@ import { gql } from "apollo-server";
  * @Date: 2022-02-03 15:50:07
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-03 21:02:24
+ * @LastEditTime: 2022-02-04 19:08:54
  * @FilePath: /instaclone-backend/src/modules/user/user.typeDefs.js
  * @Copyright 2022 hy, All Rights Reserved.
  * @仅供学习使用~
@@ -20,16 +20,37 @@ export default gql`
     createAt: String!
     updateAt: String!
   }
+  type LoginResult {
+    ok: Boolean!
+    token: String
+    error: String
+  }
+  type DefaultResult {
+    ok: Boolean!
+    data: User
+    error: String
+  }
   type Mutation {
+    login(userName: String!, password: String!): LoginResult!
     createUser(
       firstName: String!
       lastName: String
       userName: String!
       password: String!
       email: String!
-    ): User
+    ): DefaultResult!
+    editUser(
+      id: String
+      firstName: String!
+      lastName: String
+      userName: String!
+      password: String!
+      email: String!
+    ): DefaultResult!
+    deleteUser(id: String!): DefaultResult!
   }
   type Query {
     seeProfile(userName: String): User
+    seeAll: [User]
   }
 `;
