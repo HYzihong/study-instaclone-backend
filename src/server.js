@@ -3,7 +3,7 @@
  * @Date: 2022-02-01 22:49:24
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-04 22:51:52
+ * @LastEditTime: 2022-02-04 23:16:47
  * @FilePath: /instaclone-backend/src/server.js
  * @Copyright 2022 hy, All Rights Reserved.
  * @仅供学习使用~
@@ -11,7 +11,7 @@
 import { typeDefs, resolvers } from "./schema";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { ApolloServer } from "apollo-server";
-import { getUserByToken, protectResolver } from "./utils/getUser";
+import { getUserByToken, protectResolver } from "./utils/user.utils";
 import dotenv from "dotenv";
 // require("dotenv").config(); // env
 dotenv.config();
@@ -28,7 +28,6 @@ const server = new ApolloServer({
     const token = req.headers.authorization;
     return {
       userConfig: await getUserByToken(token), //使用token获取用户信息
-      protectResolver, // 用户信息获取失败的报错
     };
   },
 });

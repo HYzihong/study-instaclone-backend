@@ -3,8 +3,8 @@
  * @Date: 2022-02-04 20:06:23
  * @LastEditors: hy
  * @Description:
- * @LastEditTime: 2022-02-04 22:51:37
- * @FilePath: /instaclone-backend/src/utils/getUser.js
+ * @LastEditTime: 2022-02-04 23:20:38
+ * @FilePath: /instaclone-backend/src/utils/user.utils.js
  * @Copyright 2022 hy, All Rights Reserved.
  * @仅供学习使用~
  **/
@@ -26,8 +26,13 @@ export const getUserByToken = async (token) => {
   }
 };
 
-export const protectResolver = (user, fnName) => {
-  if (!user) {
-    return defaultFailResult("You need to login", "", fnName);
+export const protectResolver = (resolver) => (root, args, context, info) => {
+  if (!context.userConfig) {
+    return defaultFailResult(
+      "You need to login",
+      "",
+      "global protect resolver"
+    );
   }
+  return resolver(root, args, context, info);
 };
